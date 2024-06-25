@@ -11,7 +11,19 @@ const lowerInput = document.getElementById("lower-case")
 const numberInput = document.getElementById("numbers")
 const symbolInput = document.getElementById("symbols")
 
+const inputField = document.getElementById('total-char');
 
+inputField.addEventListener('input', function() {
+    const min = parseInt(inputField.min);
+    const max = parseInt(inputField.max);
+    let value = parseInt(inputField.value);
+
+    if (value < min) {
+        inputField.value = min;
+    } else if (value > max) {
+        inputField.value = max;
+    }
+});
 
 const getRandomData = (dataSet) => {
     return dataSet[Math.floor(Math.random() * dataSet.length)]
